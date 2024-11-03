@@ -1,0 +1,239 @@
+:root {
+    --color-primary: #b44827;
+    --color-back-light: #ECEFF1;
+    --color-back-dark: #37474f;
+    --spacer-base: 1em;
+    --card-font-size: 90%;
+    --header-font-size: 32px;
+    --header-height: 8em;
+}
+body {
+    font-family:   Roboto, Arial, sans-serif;
+    font-size: 1em;
+    background-color: #b1dbf7;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacer-base);
+    background-color: #c5f5bf;
+    height: var(--header-height);
+
+}
+header h1 {
+    margin: 0;   
+    font-size: var(--header-font-size);
+    color: #b44827;
+}
+header h1 span {
+    color:#b44827;
+}
+figure {
+    margin: 0;
+    padding: 0;
+}
+button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: white;
+    color: var(--color-primary);
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.cards{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+button:hover {
+    box-shadow: drop-shadow(0 0 0.5rem rgba(0,0,0,0.5));
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+	background: white;
+	margin-bottom: 2em;	
+    padding: 0;
+    width: 33%;
+   
+}
+.glitch:hover {
+    position: relative;
+    color: black;
+    font-size: 2em;
+    animation: glitch 1s infinite;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+}
+
+.glitch::before {
+    animation: glitchTop 0.5s infinite;
+    color: red;
+    top: -2px;
+    left: 2px;
+    opacity: 0.8;
+}
+
+.glitch::after {
+    animation: glitchBottom 0.5s infinite;
+    color: blue;
+    top: 2px;
+    left: -2px;
+    opacity: 0.8;
+}
+
+@keyframes glitch {
+    0% { transform: skew(0deg); }
+    20% { transform: skew(5deg); }
+    40% { transform: skew(-5deg); }
+    60% { transform: skew(0deg); }
+}
+
+@keyframes glitchTop {
+    0% { clip: rect(0, 900px, 0, 0); }
+    20% { clip: rect(10px, 900px, 60px, 0); }
+    40% { clip: rect(20px, 900px, 80px, 0); }
+    60% { clip: rect(30px, 900px, 100px, 0); }
+}
+
+@keyframes glitchBottom {
+    0% { clip: rect(10px, 900px, 90px, 0); }
+    20% { clip: rect(15px, 900px, 80px, 0); }
+    40% { clip: rect(25px, 900px, 100px, 0); }
+    60% { clip: rect(20px, 900px, 90px, 0); }
+}
+
+.neon-text {
+    color: #fff;
+    font-size: 2em;
+    text-shadow:
+        0 0 5px #d66b31,
+        0 0 10px #d66b31,
+        0 0 15px #d66b31,
+        0 0 20px #d66b31,
+        0 0 30px #d66b31,
+        0 0 40px #d66b31,
+        0 0 50px #d66b31;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonGlow {
+    from {
+        text-shadow: 
+            0 0 5px #ffc766,
+            0 0 10px #ffc766,
+            0 0 15px #ffc766,
+            0 0 20px #ffc766,
+            0 0 30px #ffc766,
+            0 0 40px #ffc766,
+            0 0 50px #ffc766;
+    }
+    to {
+        text-shadow: 
+            0 0 10px #f1ac36,
+            0 0 20px #f1ac36,
+            0 0 30px #f1ac36,
+            0 0 40px #f1ac36,
+            0 0 50px #f1ac36,
+            0 0 60px #f1ac36,
+            0 0 70px #f1ac36;
+    }
+}
+
+
+
+.card img {
+    transition: filter 0.5s ease;
+    transition: box-shadow 0.5s ease;
+}
+
+.card:hover img {
+    filter: saturate(150%);
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    background: white;
+    margin-bottom: 2em;
+    padding: 0;
+    width: 33%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card button {
+    opacity: 0;
+    transition: opacity 1s ease;
+
+}
+
+.card:hover button {
+    opacity: 1;
+}
+
+/* Truy vấn phương tiện cho màn hình máy tính bảng (481px đến 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container .card {
+        width: 45%; 
+        --card-font-size: 100%;
+        --header-height: 5em;
+    }
+}
+
+/* Truy vấn phương tiện cho màn hình di động (dưới 480px) */
+@media (max-width: 480px) {
+    .container .card {
+        width: 100%;
+        /* Tăng kích thước font của thẻ */
+        --card-font-size: 100%;
+        /* Thu nhỏ kích thước và chiều cao của header */
+        --header-font-size: 24px;
+        --header-height: 4em;
+    }
+}
+
+.card-content p {
+	padding: 0.5em 1.4em 0 1.4em;
+	font-size: var(--card-font-size);   
+}
+.card-actions {
+	padding: 0.5em 1.4em;
+	font-size: var(--card-font-size);      
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+
+/* styles for mobile protrait screen */
+
+
+/* styles for tablet portrait and mobile landscape screens */
