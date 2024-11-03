@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Container styling */
+        div.at-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+
+        .at-item {
+            color: #3079ed;
+            font-weight: bold;
+            font-size: 3em;
+            animation: slide-in-elliptic-right-bck 5s linear 0s 1 forwards,
+                text-shadow-multicolor 5s ease infinite;
+            animation-delay: 0s, 5s;
+        }
+
+
+        /* Slide-in animation */
+        @keyframes slide-in-elliptic-right-bck {
+            0% {
+                transform: translateX(800px) rotateY(30deg) scale(6.5);
+                transform-origin: -100% 50%;
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0) rotateY(0) scale(1);
+                transform-origin: 600px 50%;
+                opacity: 1;
+            }
+        }
+
+
+        /* Text shadow color changing animation */
+        @keyframes text-shadow-multicolor {
+            0% {
+                text-shadow: 0 0px 15px #f0f;
+            }
+
+            33% {
+                text-shadow: 0 0px 15px #0ff;
+            }
+
+            66% {
+                text-shadow: 0 0px 10px #0f0;
+            }
+
+            100% {
+                text-shadow: 0 0px 10px #ff0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Animated text container -->
+    <div class="at-container">
+        <div class="at-item">Đại học UEH</div>
+    </div>
+
+
+</body>
+
+</html>
