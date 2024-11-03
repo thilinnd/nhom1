@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Effect Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #555;
+        }
+
+        .view-fourth {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 0px;
+        }
+
+        .view-fourth img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease-in-out 0.2s;
+            opacity: 1;
+        }
+
+        .view-fourth .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transform: scale(0) rotate(-180deg);
+            transition: all 0.4s ease-in;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .view-fourth h1,
+        .view-fourth p {
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+            color: white;
+        }
+
+        .view-fourth button {
+            color: #3498db;
+            background-color: transparent;
+            border: none;
+            text-decoration: underline;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .view-fourth:hover .mask {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 0.2s;
+        }
+
+        .view-fourth:hover img {
+            transform: scale(0);
+            opacity: 0;
+            transition-delay: 0s;
+        }
+
+        .view-fourth:hover h1,
+        .view-fourth:hover p,
+        .view-fourth:hover button {
+            opacity: 1;
+            transition-delay: 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="view-fourth">
+        <img src="https://i.pinimg.com/564x/d4/66/1f/d4661f0c4e4a407d2d365c326132127e.jpg" alt="Hình Ảnh Đẹp">
+        <div class="mask">
+            <h1>Fashion of this month</h1>
+            <p>You know how to dress like a Cbiz star? If you dont know</p>
+            <button>Follow Us</button>
+        </div>
+    </div>
+</body>
+
+</html>
